@@ -1,0 +1,17 @@
+.popup-info__button {
+	border: none;
+	color: white;
+	background-color: black;
+	border-radius: 2px;
+	font-size: 18px;
+	font-weight: 400;
+	height: 50px;
+	margin: 18px 0 0 0;
+	padding: 0;
+}
+@media (max-width: 880px) {
+    .popup-info__button {
+    		margin: 15px 0 0 0;
+    		height: 46px;
+    	}
+}
