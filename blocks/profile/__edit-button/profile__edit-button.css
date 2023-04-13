@@ -8,14 +8,14 @@
 	align-self: center;
 	border: none;
 	background-color: transparent;
+	margin: 0 0 0 10px;
 }
 .profile__edit-button:hover {
 	opacity: 0.6;
 }
+
 @media (max-width: 880px) {
-    .profile__edit-button {
-    		position: absolute;
-    		right: -24px;
-    		bottom: 0;
-    	}
+	.profile__edit-button {
+		grid-column: 3;
+	}
 }

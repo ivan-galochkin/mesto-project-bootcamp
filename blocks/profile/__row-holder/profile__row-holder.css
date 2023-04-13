@@ -5,11 +5,13 @@
 	flex-direction: row;
 	gap: 18px;
 }
+
 @media (max-width: 880px) {
-    .profile__row-holder {
-    		position: relative;
-    		display: block;
-    		justify-self: center;
-    		max-width: calc(100% - 24px - 20px);
-    	}
+	.profile__row-holder {
+		display: grid;
+		justify-content: space-between;
+		gap: 0;
+		grid-template-columns: 24px 1fr 34px;
+		width: min-content;
+	}
 }
