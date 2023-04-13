@@ -5,12 +5,13 @@
 	gap: 30px;
 	max-width: 70%;
 }
+
 @media (max-width: 880px) {
-    .profile__info-holder {
-    		display: flex;
-    		flex-direction: column;
-    		gap: 26px;
-    		width: 100%;
-    		max-width: 100%;
-    	}
+	.profile__info-holder {
+		display: flex;
+		flex-direction: column;
+		gap: 26px;
+		width: 100%;
+		max-width: 100%;
+	}
 }

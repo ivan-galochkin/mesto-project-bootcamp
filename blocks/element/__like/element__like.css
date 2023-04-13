@@ -7,9 +7,11 @@
 	align-self: center;
 	background-size: contain;
 }
+
 .element__like:hover {
 	opacity: 0.6;
 }
+
 .element__like:active {
 	background-image: url("../../../images/like_active.svg");
 }

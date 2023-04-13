@@ -8,11 +8,12 @@
 	height: 100%;
 
 }
+
 @media (max-width: 880px) {
-    .profile {
-    		display: flex;
-    		flex-direction: column;
-    		padding-top: 42px;
-    		gap: 36px;
-    	}
+	.profile {
+		display: flex;
+		flex-direction: column;
+		padding-top: 42px;
+		gap: 36px;
+	}
 }

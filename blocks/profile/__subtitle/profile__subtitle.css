@@ -8,8 +8,9 @@
 	overflow: hidden;
 	white-space: normal;
 }
+
 @media (max-width: 880px) {
-    .profile__subtitle {
-    		font-size: 14px;
-    	}
+	.profile__subtitle {
+		font-size: 14px;
+	}
 }

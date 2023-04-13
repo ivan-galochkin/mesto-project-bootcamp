@@ -3,10 +3,11 @@
 	max-width: calc(1280px * 0.6875);
 	box-sizing: border-box;
 }
+
 @media (max-width: 880px) {
-    .content {
-    		width: 88.125%;
-    		display: flex;
-    		flex-direction: column;
-    	}
+	.content {
+		width: 88.125%;
+		display: flex;
+		flex-direction: column;
+	}
 }
