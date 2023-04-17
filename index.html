@@ -25,48 +25,48 @@
     <button class="profile__add-button" type="button"></button>
   </section>
   <section class="elements">
-    <div class="element">
+    <article class="element">
       <img alt="Карачаевск" class="element__image" src="./images/karachaevsk.png"/>
       <div class="element__info">
         <h2 class="element__title">Карачаевск</h2>
         <div class="element__like"></div>
       </div>
-    </div>
-    <div class="element">
+    </article>
+    <article class="element">
       <img alt="Эльбрус" class="element__image" src="./images/elbrus.png"/>
       <div class="element__info">
         <h2 class="element__title">Гора Эльбрус</h2>
         <div class="element__like"></div>
       </div>
-    </div>
-    <div class="element">
+    </article>
+    <article class="element">
       <img alt="Домбай" class="element__image" src="./images/dombay.png"/>
       <div class="element__info">
         <h2 class="element__title">Домбай</h2>
         <div class="element__like"></div>
       </div>
-    </div>
-    <div class="element">
+    </article>
+    <article class="element">
       <img alt="Эльбрус" class="element__image" src="./images/elbrus.png"/>
       <div class="element__info">
         <h2 class="element__title">Гора Эльбрус</h2>
         <div class="element__like"></div>
       </div>
-    </div>
-    <div class="element">
+    </article>
+    <article class="element">
       <img alt="Домбай" class="element__image" src="./images/dombay.png"/>
       <div class="element__info">
         <h2 class="element__title">Домбай</h2>
         <div class="element__like"></div>
       </div>
-    </div>
-    <div class="element">
+    </article>
+    <article class="element">
       <img alt="Карачаевск" class="element__image" src="./images/karachaevsk.png"/>
       <div class="element__info">
         <h2 class="element__title">Карачаевск</h2>
-        <div class="element__like"></div>
+        <button class="element__like" type="button"></button>
       </div>
-    </div>
+    </article>
   </section>
 </main>
 <footer class="footer">
@@ -74,15 +74,15 @@
     &copy; 2020 Mesto Russia
   </p>
 </footer>
-<div class="popup-info popup-info_closed">
+<div class="popup-info popup-info_opened">
   <div class="popup-info__content">
     <h2 class="popup-info__title">
       Редактировать профиль
     </h2>
-    <form class="popup-info__form" name="infoPopupForm">
-      <input class="popup-info__input" name="infoPopupInput" placeholder="Имя" required type="text"
+    <form class="popup-info__form" name="infoPopupForm" method="POST">
+      <input id="popup-name__input" class="popup-info__input" name="infoPopupInput" placeholder="Имя" required type="text"
              value="Жак-Ив Кусто"/>
-      <input class="popup-info__input" name="infoPopupInput" placeholder="Профессия" value="Исследователь океана"/>
+      <input id="popup-profession__input" class="popup-info__input" name="infoPopupInput" placeholder="Профессия" value="Исследователь океана"/>
       <button class="popup-info__button" type="submit">Сохранить</button>
     </form>
     <button class="popup-info__close-button" type="button"></button>

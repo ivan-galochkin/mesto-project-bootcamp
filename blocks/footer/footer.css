@@ -2,7 +2,7 @@
 	max-width: calc(1280px * 0.6875);
 	width: 88.125%;
 	box-sizing: content-box;
-	padding: 66px 0 60px 0
+	padding: 66px 0 60px 0;
 }
 
 @media (max-width: 880px) {

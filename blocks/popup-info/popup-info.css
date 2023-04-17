@@ -1,5 +1,5 @@
 .popup-info {
-	display: flex;
+	display: none;
 	box-sizing: border-box;
 	min-width: 100%;
 	min-height: 100%;

@@ -7,6 +7,15 @@
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
+@media (max-width: 1279px) {
+	.elements {
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+		width: max-content;
+		align-self: center;
+	}
+}
+
 @media (max-width: 880px) {
 	.elements {
 		padding: 36px 0 0 0;

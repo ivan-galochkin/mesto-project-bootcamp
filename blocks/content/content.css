@@ -2,6 +2,8 @@
 	width: 68.75%;
 	max-width: calc(1280px * 0.6875);
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 880px) {
