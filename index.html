@@ -41,20 +41,32 @@
     &copy; 2020 Mesto Russia
   </p>
 </footer>
-<div class="popup popup-info">
-  <div class="popup-info__content">
-    <h2 class="popup-info__title">
+<div class="popup" id="popup-info">
+  <div class="popup__content">
+    <h2 class="popup__title">
       Редактировать профиль
     </h2>
-    <form class="popup-info__form" name="infoPopupForm" method="POST">
-      <input id="popup-name__input" class="popup-info__input" name="infoPopupInput" placeholder="Имя" required
-             type="text"
-             value="Жак-Ив Кусто"/>
-      <input id="popup-profession__input" class="popup-info__input" name="infoPopupInput" placeholder="Профессия"
-             value="Исследователь океана"/>
-      <button class="popup-info__button" type="submit">Сохранить</button>
+    <form class="popup__form" name="infoPopupForm" method="POST">
+      <input id="popup-info-name__input" class="popup__input" name="infoPopupInput" placeholder="Имя" required
+             type="text"/>
+      <input id="popup-info-profession__input" class="popup__input" name="infoPopupInput" placeholder="Профессия"/>
+      <button class="popup__button" type="submit">Сохранить</button>
     </form>
-    <button class="popup-info__close-button" type="button"></button>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<div class="popup" id="popup-mesto">
+  <div class="popup__content">
+    <h2 class="popup__title">
+      Новое место
+    </h2>
+    <form class="popup__form" name="infoPopupForm">
+      <input id="popup-mesto-name__input" class="popup__input" name="infoPopupInput" placeholder="Название места" required
+             type="text"/>
+      <input id="popup-mesto-link__input" class="popup__input" name="infoPopupInput" placeholder="Ссылка на картинку"/>
+      <button class="popup__button" type="submit">Создать</button>
+    </form>
+    <button class="popup__close-button" type="button"></button>
   </div>
 </div>
 </body>

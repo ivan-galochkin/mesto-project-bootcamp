@@ -1,4 +1,4 @@
-.popup-info__form {
+.popup__form {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;

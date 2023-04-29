@@ -1,4 +1,4 @@
-.popup-info__content {
+.popup__content {
 	color: black;
 	position: relative;
 	padding: 34px 36px 37px 36px;
@@ -13,7 +13,7 @@
 }
 
 @media (max-width: 880px) {
-	.popup-info__content {
+	.popup__content {
 		max-width: 282px;
 		padding: 25px 22px 25px 22px;
 	}

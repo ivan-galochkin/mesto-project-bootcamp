@@ -1,4 +1,4 @@
-.popup-info__button {
+.popup__button {
 	border: none;
 	color: white;
 	background-color: black;
@@ -10,13 +10,13 @@
 	padding: 0;
 }
 
-.popup-info__button:hover {
+.popup__button:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }
 
 @media (max-width: 880px) {
-	.popup-info__button {
+	.popup__button {
 		margin: 15px 0 0 0;
 		height: 46px;
 		font-size: 14px;

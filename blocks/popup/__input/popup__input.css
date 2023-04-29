@@ -1,4 +1,4 @@
-.popup-info__input {
+.popup__input {
 	width: 100%;
 	border: none;
 	box-sizing: border-box;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 880px) {
-	.popup-info__input {
+	.popup__input {
 		padding-bottom: 13px;
 	}
 }

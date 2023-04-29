@@ -4,17 +4,26 @@ const profile = page.querySelector(".profile");
 const profileEditButton = profile.querySelector(".profile__edit-button");
 const profileHeader = profile.querySelector(".profile__header");
 const profileSubtitle = profile.querySelector(".profile__subtitle");
+const profileAddButton = profile.querySelector(".profile__add-button");
 
 const elements = page.querySelector(".elements");
 
-const popupInfo = page.querySelector(".popup-info");
-const popupInfoForm = popupInfo.querySelector(".popup-info__form");
-const popupInfoCloseButton = popupInfo.querySelector(".popup-info__close-button");
-const popupInfoConfirmButton = popupInfoForm.querySelector(".popup-info__button");
+const popupInfo = page.querySelector("#popup-info");
+const popupInfoForm = popupInfo.querySelector(".popup__form");
+const popupInfoCloseButton = popupInfo.querySelector(".popup__close-button");
+const popupInfoConfirmButton = popupInfoForm.querySelector(".popup__button");
 
+const popupInfoNameInput = popupInfo.querySelector("#popup-info-name__input");
+const popupInfoProfessionInput = popupInfo.querySelector("#popup-info-profession__input");
 
-const popupInfoNameInput = popupInfo.querySelector("#popup-name__input");
-const popupInfoProfessionInput = popupInfo.querySelector("#popup-profession__input");
+const popupMesto = page.querySelector("#popup-mesto");
+const popupMestoForm = popupMesto.querySelector(".popup__form");
+const popupMestoCloseButton = popupMesto.querySelector(".popup__close-button");
+const popupMestoCreateButton = popupMestoForm.querySelector(".popup__button");
+
+const popupMestoNameInput = popupMestoForm.querySelector("#popup-mesto-name__input")
+const popupMestoLinkInput = popupMestoForm.querySelector("#popup-mesto-link__input")
+
 
 console.log(page.querySelector("#element"))
 const elementTemplate = page.querySelector("#element").content;
@@ -23,10 +32,15 @@ popupInfoNameInput.value = "Жак-Ив Кусто"
 popupInfoProfessionInput.value = "Исследователь океана"
 
 
-function handleFormSubmit(event) {
+function handleFormSubmitInfo(event) {
     event.preventDefault();
     profileHeader.textContent = popupInfoNameInput.value;
     profileSubtitle.textContent = popupInfoProfessionInput.value;
+}
+
+function handleFormSubmitMesto(event) {
+    event.preventDefault();
+    createCard(popupMestoNameInput.value, popupMestoLinkInput.value);
 }
 
 
@@ -42,9 +56,6 @@ function openImagePopup(link) {
     //
 }
 
-function initCards() {
-
-}
 
 function toggleLike(cardLike) {
     cardLike.classList.toggle("element__like_active");
@@ -67,9 +78,15 @@ function createCard(title, link) {
 }
 
 initialCards.forEach((card) => createCard(card.name, card.link))
-console.log(initialCards)
-profileEditButton.addEventListener("click", () => openPopup(popupInfo))
-popupInfoCloseButton.addEventListener("click", () => closePopup(popupInfo));
+profileEditButton.addEventListener("click", () => openPopup(popupInfo));
 
-popupInfoForm.addEventListener("submit", (event) => handleFormSubmit(event));
+profileAddButton.addEventListener("click", () => openPopup(popupMesto));
+
+popupMestoCloseButton.addEventListener("click", () => closePopup(popupMesto));
+
+popupMestoForm.addEventListener("submit", (event) => handleFormSubmitMesto(event));
+
+popupMestoCreateButton.addEventListener("click", () => closePopup(popupMesto));
+popupInfoCloseButton.addEventListener("click", () => closePopup(popupInfo));
+popupInfoForm.addEventListener("submit", (event) => handleFormSubmitInfo(event));
 popupInfoConfirmButton.addEventListener("click", () => closePopup(popupInfo));
