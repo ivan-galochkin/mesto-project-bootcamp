@@ -25,48 +25,15 @@
     <button class="profile__add-button" type="button"></button>
   </section>
   <section class="elements">
-    <article class="element">
-      <img alt="Карачаевск" class="element__image" src="./images/karachaevsk.png"/>
-      <div class="element__info">
-        <h2 class="element__title">Карачаевск</h2>
-        <div class="element__like"></div>
-      </div>
-    </article>
-    <article class="element">
-      <img alt="Эльбрус" class="element__image" src="./images/elbrus.png"/>
-      <div class="element__info">
-        <h2 class="element__title">Гора Эльбрус</h2>
-        <div class="element__like"></div>
-      </div>
-    </article>
-    <article class="element">
-      <img alt="Домбай" class="element__image" src="./images/dombay.png"/>
-      <div class="element__info">
-        <h2 class="element__title">Домбай</h2>
-        <div class="element__like"></div>
-      </div>
-    </article>
-    <article class="element">
-      <img alt="Эльбрус" class="element__image" src="./images/elbrus.png"/>
-      <div class="element__info">
-        <h2 class="element__title">Гора Эльбрус</h2>
-        <div class="element__like"></div>
-      </div>
-    </article>
-    <article class="element">
-      <img alt="Домбай" class="element__image" src="./images/dombay.png"/>
-      <div class="element__info">
-        <h2 class="element__title">Домбай</h2>
-        <div class="element__like"></div>
-      </div>
-    </article>
-    <article class="element">
-      <img alt="Карачаевск" class="element__image" src="./images/karachaevsk.png"/>
-      <div class="element__info">
-        <h2 class="element__title">Карачаевск</h2>
-        <button class="element__like" type="button"></button>
-      </div>
-    </article>
+    <template id="element">
+      <article class="element">
+        <img alt="Карачаевск" class="element__image" src="./images/karachaevsk.png"/>
+        <div class="element__info">
+          <h2 class="element__title">Карачаевск</h2>
+          <div class="element__like"></div>
+        </div>
+      </article>
+    </template>
   </section>
 </main>
 <footer class="footer">
@@ -91,5 +58,6 @@
   </div>
 </div>
 </body>
+<script src="./scripts/cardsArray.js"></script>
 <script src="./scripts/index.js"></script>
 </html>
