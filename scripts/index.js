@@ -40,7 +40,7 @@ function handleFormSubmitInfo(event) {
 
 function handleFormSubmitMesto(event) {
     event.preventDefault();
-    createCard(popupMestoNameInput.value, popupMestoLinkInput.value);
+    createCard(popupMestoNameInput.value, popupMestoLinkInput.value, elements.children.length - 1);
 }
 
 
@@ -61,23 +61,33 @@ function toggleLike(cardLike) {
     cardLike.classList.toggle("element__like_active");
 }
 
-function createCard(title, link) {
+function deleteCard(cardId) {
+    elements.querySelector(`#card-${cardId}`).remove();
+}
+
+function createCard(title, link, index) {
     const card = elementTemplate
         .querySelector(".element")
         .cloneNode(true);
+
     const cardTitle = card.querySelector(".element__title");
     cardTitle.textContent = title;
+
     const cardImage = card.querySelector(".element__image")
+    card.setAttribute("id", "card-" + index);
     cardImage.src = link;
     cardImage.alt = title;
     cardImage.addEventListener("click", () => openImagePopup(link));
+
+    const cardDeleteButton = card.querySelector(".element__delete-button");
+    cardDeleteButton.addEventListener("click", () => deleteCard(index));
 
     const cardLike = card.querySelector(".element__like");
     cardLike.addEventListener("click", () => toggleLike(cardLike));
     elements.append(card);
 }
 
-initialCards.forEach((card) => createCard(card.name, card.link))
+initialCards.forEach((card, index) => createCard(card.name, card.link, index))
 profileEditButton.addEventListener("click", () => openPopup(popupInfo));
 
 profileAddButton.addEventListener("click", () => openPopup(popupMesto));
