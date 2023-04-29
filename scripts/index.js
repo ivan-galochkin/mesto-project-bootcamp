@@ -46,6 +46,10 @@ function initCards() {
 
 }
 
+function toggleLike(cardLike) {
+    cardLike.classList.toggle("element__like_active");
+}
+
 function createCard(title, link) {
     const card = elementTemplate
         .querySelector(".element")
@@ -57,6 +61,8 @@ function createCard(title, link) {
     cardImage.alt = title;
     cardImage.addEventListener("click", () => openImagePopup(link));
 
+    const cardLike = card.querySelector(".element__like");
+    cardLike.addEventListener("click", () => toggleLike(cardLike));
     elements.append(card);
 }
 
