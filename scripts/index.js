@@ -24,8 +24,11 @@ const popupMestoCreateButton = popupMestoForm.querySelector(".popup__button");
 const popupMestoNameInput = popupMestoForm.querySelector("#popup-mesto-name__input")
 const popupMestoLinkInput = popupMestoForm.querySelector("#popup-mesto-link__input")
 
+const popupImage = page.querySelector(".popup-image");
+const popupImageCloseButton = popupImage.querySelector(".popup__close-button");
+const popupImagePicture = popupImage.querySelector(".popup-image__image");
+const popupImageSubtitle = popupImage.querySelector(".popup-image__subtitle");
 
-console.log(page.querySelector("#element"))
 const elementTemplate = page.querySelector("#element").content;
 
 popupInfoNameInput.value = "Жак-Ив Кусто"
@@ -52,8 +55,11 @@ function openPopup(popup) {
     popup.classList.add("popup_opened");
 }
 
-function openImagePopup(link) {
-    //
+function openImagePopup(title, link) {
+    popupImagePicture.src = link;
+    popupImagePicture.alt = title;
+    popupImageSubtitle.textContent = title;
+    popupImage.classList.add("popup_opened");
 }
 
 
@@ -77,7 +83,7 @@ function createCard(title, link, index) {
     card.setAttribute("id", "card-" + index);
     cardImage.src = link;
     cardImage.alt = title;
-    cardImage.addEventListener("click", () => openImagePopup(link));
+    cardImage.addEventListener("click", () => openImagePopup(title, link));
 
     const cardDeleteButton = card.querySelector(".element__delete-button");
     cardDeleteButton.addEventListener("click", () => deleteCard(index));
@@ -100,3 +106,10 @@ popupMestoCreateButton.addEventListener("click", () => closePopup(popupMesto));
 popupInfoCloseButton.addEventListener("click", () => closePopup(popupInfo));
 popupInfoForm.addEventListener("submit", (event) => handleFormSubmitInfo(event));
 popupInfoConfirmButton.addEventListener("click", () => closePopup(popupInfo));
+popupImageCloseButton.addEventListener("click", () => closePopup(popupImage));
+
+setTimeout(function () {
+    popupMesto.classList.remove("popup_preload");
+    popupInfo.classList.remove("popup_preload");
+    popupImage.classList.remove("popup_preload");
+}, 500);

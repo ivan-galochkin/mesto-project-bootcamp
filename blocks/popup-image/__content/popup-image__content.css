@@ -1,0 +1,6 @@
+.popup-image__content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
