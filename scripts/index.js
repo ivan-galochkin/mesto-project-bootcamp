@@ -11,7 +11,6 @@ const elements = page.querySelector(".elements");
 const popupInfo = page.querySelector("#popup-info");
 const popupInfoForm = popupInfo.querySelector(".popup__form");
 const popupInfoCloseButton = popupInfo.querySelector(".popup__close-button");
-const popupInfoConfirmButton = popupInfoForm.querySelector(".popup__button");
 
 const popupInfoNameInput = popupInfo.querySelector("#popup-info-name__input");
 const popupInfoProfessionInput = popupInfo.querySelector("#popup-info-profession__input");
@@ -19,7 +18,6 @@ const popupInfoProfessionInput = popupInfo.querySelector("#popup-info-profession
 const popupMesto = page.querySelector("#popup-mesto");
 const popupMestoForm = popupMesto.querySelector(".popup__form");
 const popupMestoCloseButton = popupMesto.querySelector(".popup__close-button");
-const popupMestoCreateButton = popupMestoForm.querySelector(".popup__button");
 
 const popupMestoNameInput = popupMestoForm.querySelector("#popup-mesto-name__input")
 const popupMestoLinkInput = popupMestoForm.querySelector("#popup-mesto-link__input")
