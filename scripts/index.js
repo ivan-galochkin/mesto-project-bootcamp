@@ -31,19 +31,18 @@ const popupImageSubtitle = popupImage.querySelector(".popup-image__subtitle");
 
 const elementTemplate = page.querySelector("#element").content;
 
-popupInfoNameInput.value = "Жак-Ив Кусто"
-popupInfoProfessionInput.value = "Исследователь океана"
-
-
 function handleFormSubmitInfo(event) {
     event.preventDefault();
     profileHeader.textContent = popupInfoNameInput.value;
     profileSubtitle.textContent = popupInfoProfessionInput.value;
+    closePopup(popupInfo)
 }
 
 function handleFormSubmitMesto(event) {
     event.preventDefault();
     createCard(popupMestoNameInput.value, popupMestoLinkInput.value, elements.children.length - 1);
+    event.target.reset();
+    closePopup(popupInfo);
 }
 
 
@@ -59,7 +58,7 @@ function openImagePopup(title, link) {
     popupImagePicture.src = link;
     popupImagePicture.alt = title;
     popupImageSubtitle.textContent = title;
-    popupImage.classList.add("popup_opened");
+    openPopup(popupImage);
 }
 
 
@@ -71,11 +70,10 @@ function deleteCard(cardId) {
     elements.querySelector(`#card-${cardId}`).remove();
 }
 
-function createCard(title, link, index) {
+function getCard(title, link, index) {
     const card = elementTemplate
         .querySelector(".element")
         .cloneNode(true);
-
     const cardTitle = card.querySelector(".element__title");
     cardTitle.textContent = title;
 
@@ -90,7 +88,12 @@ function createCard(title, link, index) {
 
     const cardLike = card.querySelector(".element__like");
     cardLike.addEventListener("click", () => toggleLike(cardLike));
-    elements.append(card);
+    return card;
+}
+
+function createCard(title, link, index) {
+    const card = getCard(title, link, index);
+    elements.prepend(card);
 }
 
 initialCards.forEach((card, index) => createCard(card.name, card.link, index))
@@ -99,13 +102,9 @@ profileEditButton.addEventListener("click", () => openPopup(popupInfo));
 profileAddButton.addEventListener("click", () => openPopup(popupMesto));
 
 popupMestoCloseButton.addEventListener("click", () => closePopup(popupMesto));
-
 popupMestoForm.addEventListener("submit", (event) => handleFormSubmitMesto(event));
-
-popupMestoCreateButton.addEventListener("click", () => closePopup(popupMesto));
 popupInfoCloseButton.addEventListener("click", () => closePopup(popupInfo));
 popupInfoForm.addEventListener("submit", (event) => handleFormSubmitInfo(event));
-popupInfoConfirmButton.addEventListener("click", () => closePopup(popupInfo));
 popupImageCloseButton.addEventListener("click", () => closePopup(popupImage));
 
 setTimeout(function () {
