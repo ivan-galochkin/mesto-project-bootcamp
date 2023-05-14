@@ -1,6 +1,0 @@
-.popup_opened {
-	z-index: 100;
-	opacity: 1;
-	transition: z-index 0.5s step-start, opacity 0.5s linear;
-}
-

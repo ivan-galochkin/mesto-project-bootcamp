@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Russian Travel</title>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body class="page">
+<header class="header">
+  <div class="header__logo"></div>
+</header>
+<main class="content">
+  <section class="profile">
+    <div class="profile__info-holder">
+      <img alt="Аватарка" class="profile__avatar" src="./images/ded.png"/>
+      <div class="profile__info">
+        <div class="profile__row-holder">
+          <h1 class="profile__header">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+        </div>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+    </div>
+    <button class="profile__add-button" type="button"></button>
+  </section>
+  <section class="elements">
+    <template id="element">
+      <article class="element">
+        <img alt="Карачаевск" class="element__image" src="images/karachaevsk.png"/>
+        <div class="element__info">
+          <h2 class="element__title">Карачаевск</h2>
+          <div class="element__like"></div>
+        </div>
+        <button class="element__delete-button"></button>
+      </article>
+    </template>
+  </section>
+</main>
+<footer class="footer">
+  <p class="footer__copyright">
+    &copy; 2020 Mesto Russia
+  </p>
+</footer>
+<div class="popup popup_preload" id="popup-info">
+  <div class="popup__content">
+    <h2 class="popup__title">
+      Редактировать профиль
+    </h2>
+    <form class="popup__form" method="POST" name="infoPopupForm">
+      <input class="popup__input" id="popup-info-name__input" maxlength="40" minlength="2" name="infoPopupInput"
+             placeholder="Имя" required type="text"/>
+      <span class="popup-info-name__input-error popup__input-error"></span>
+      <input class="popup__input" id="popup-info-profession__input" maxlength="200" minlength="2"
+             name="infoPopupInput" placeholder="Профессия" required/>
+      <span class="popup-info-profession__input-error popup__input-error"></span>
+      <button class="popup__button" type="submit">Сохранить</button>
+    </form>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<div class="popup popup_preload" id="popup-mesto">
+  <div class="popup__content">
+    <h2 class="popup__title">
+      Новое место
+    </h2>
+    <form class="popup__form" name="infoPopupForm">
+      <input class="popup__input" id="popup-mesto-name__input" maxlength="30" minlength="2"
+             name="infoPopupInput" placeholder="Название места" required type="text"/>
+      <span class="popup-mesto-name__input-error popup__input-error"></span>
+      <input class="popup__input" id="popup-mesto-link__input" name="infoPopupInput" placeholder="Ссылка на картинку"
+             required type="url"/>
+      <span class="popup-mesto-link__input-error popup__input-error"></span>
+      <button class="popup__button" type="submit">Создать</button>
+    </form>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<div class="popup popup-image popup_preload" id="popup-image">
+  <div class="popup-image__content">
+    <img alt="temp" class="popup-image__image" src="images/ded.png"/>
+    <p class="popup-image__subtitle"></p>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+</body>
+</html>
