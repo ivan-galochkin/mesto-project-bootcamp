@@ -11,7 +11,6 @@ export function toggleLike(cardLike) {
 }
 
 export function deleteCard(cardId) {
-    console.log(cardId)
     elements.querySelector(`#card-${cardId}`).remove();
 }
 

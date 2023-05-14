@@ -1,13 +1,14 @@
-import {initialCards} from "./components/utils";
+import {initialCards} from "./components/constants";
 import "./styles/index.css"
 import {setValidation} from "./components/validate";
 import {
+    changePopupInfoValues,
+    closeByEscape,
     closePopup,
+    closePopupOverlay,
     handleFormSubmitInfo,
     handleFormSubmitMesto,
-    openPopup,
-    popupCloseEsc,
-    popupCloseOverlay
+    openPopup
 } from "./components/modal";
 import {createCard} from "./components/card";
 
@@ -35,25 +36,31 @@ const elements = page.querySelector(".elements");
 
 
 initialCards.forEach((card, index) => createCard(card.name, card.link, index, elements))
-profileEditButton.addEventListener("click", () => openPopup(popupInfo));
 
+profileEditButton.addEventListener("click", () => {
+    changePopupInfoValues(popupInfo, profile)
+    openPopup(popupInfo)
+});
 profileAddButton.addEventListener("click", () => openPopup(popupMesto));
-
 popupMestoCloseButton.addEventListener("click", () => closePopup(popupMesto));
 popupMestoForm.addEventListener("submit", (event) => handleFormSubmitMesto(event));
 popupInfoCloseButton.addEventListener("click", () => closePopup(popupInfo));
 popupInfoForm.addEventListener("submit", (event) => handleFormSubmitInfo(event));
 popupImageCloseButton.addEventListener("click", () => closePopup(popupImage));
 
-popupCloseOverlay(popupList);
-popupCloseEsc(popupList);
+
+document.removeEventListener('keydown', closeByEscape);
+
+
+closePopupOverlay(popupList);
+closeByEscape(popupList);
 setValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_inactive',
     inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error'
+    errorClass: 'popup__input-error',
 }, page);
 setTimeout(function () {
     popupMesto.classList.remove("popup_preload");

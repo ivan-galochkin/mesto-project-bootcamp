@@ -1,5 +1,5 @@
 export const setValidation = function (settings, page) {
-    const forms = Array.from(page.querySelectorAll(".popup__form"));
+    const forms = Array.from(page.querySelectorAll(settings.formSelector));
     forms.forEach((form) => {
         setEventListener(form, settings);
     })
@@ -50,7 +50,9 @@ const hideInputError = (formElement, inputElement, settings) => {
 const toggleButtonState = (inputList, buttonElement, settings) => {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(settings.inactiveButtonClass);
+        buttonElement.setAttribute("disabled", true);
     } else {
+        buttonElement.removeAttribute("disabled");
         buttonElement.classList.remove(settings.inactiveButtonClass);
     }
 };
