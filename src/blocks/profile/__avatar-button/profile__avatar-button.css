@@ -1,0 +1,14 @@
+.profile__avatar-button {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    object-fit: cover;
+    position: absolute;
+    z-index: 2000;
+    background-color: transparent;
+    border: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    background-image: url("../../../images/edit-avatar.png");
+}

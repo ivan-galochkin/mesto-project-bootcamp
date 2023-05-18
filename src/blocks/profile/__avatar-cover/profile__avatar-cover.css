@@ -1,0 +1,21 @@
+.profile__avatar-cover {
+    z-index: 3;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity ease-in-out .2s;
+}
+
+.profile__avatar-cover:hover {
+    opacity: 1;
+}

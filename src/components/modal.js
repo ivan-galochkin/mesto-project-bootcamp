@@ -1,34 +1,27 @@
-import {createCard} from "./card";
+import {patchAvatarProfile, patchProfile, postCard} from "./api";
 
 const page = document.querySelector(".page");
 
 
 const profile = page.querySelector(".profile");
-const profileHeader = profile.querySelector(".profile__header");
-const profileSubtitle = profile.querySelector(".profile__subtitle");
-
+const profileName = profile.querySelector(".profile__header");
+const profileDescription = profile.querySelector(".profile__subtitle");
+const profileAvatar = profile.querySelector(".profile__avatar");
 
 const popupImage = page.querySelector(".popup-image");
+
+const popupMesto = page.querySelector("#popup-mesto");
+const popupAvatar = page.querySelector("#popup-avatar");
 
 const popupImagePicture = popupImage.querySelector(".popup-image__image");
 const popupImageSubtitle = popupImage.querySelector(".popup-image__subtitle");
 
-const elements = page.querySelector(".elements");
-
-const popupMesto = page.querySelector("#popup-mesto");
-
-
-const popupMestoForm = popupMesto.querySelector(".popup__form");
-
-
-const popupMestoNameInput = popupMestoForm.querySelector("#popup-mesto-name__input")
-const popupMestoLinkInput = popupMestoForm.querySelector("#popup-mesto-link__input")
-
 const popupInfo = page.querySelector("#popup-info");
+const popupMestoButton = popupMesto.querySelector(".popup__button");
+const popupAvatarButton = popupAvatar.querySelector(".popup__button");
+const popupInfoButton = popupInfo.querySelector(".popup__button");
 
-const popupInfoNameInput = popupInfo.querySelector("#popup-info-name__input");
-const popupInfoProfessionInput = popupInfo.querySelector("#popup-info-profession__input");
-
+export let myId = 0;
 
 export const closePopupOverlay = function (popupList) {
     popupList.forEach((popupElement) => {
@@ -40,18 +33,32 @@ export const closePopupOverlay = function (popupList) {
     })
 }
 
+
 export function handleFormSubmitInfo(event) {
     event.preventDefault();
-    profileHeader.textContent = popupInfoNameInput.value;
-    profileSubtitle.textContent = popupInfoProfessionInput.value;
-    closePopup(popupInfo);
+    popupInfoButton.textContent = "Сохранение...";
+    patchProfile();
 }
+
+export const editProfile = function (data) {
+    profileName.textContent = data.name;
+    profileDescription.textContent = data.about;
+    profileAvatar.src = data.avatar;
+    myId = data._id;
+}
+
 
 export function handleFormSubmitMesto(event) {
     event.preventDefault();
-    createCard(popupMestoNameInput.value, popupMestoLinkInput.value, elements.children.length - 1, elements);
-    event.target.reset();
-    closePopup(popupMesto);
+    popupMestoButton.textContent = "Сохранение...";
+    postCard(event);
+}
+
+
+export function handleFormSubmitAvatar(event) {
+    event.preventDefault();
+    popupAvatarButton.textContent = "Сохранение...";
+    patchAvatarProfile(event);
 }
 
 export function closeByEscape(evt) {
@@ -86,3 +93,5 @@ export function changePopupInfoValues(popupInfo, profile) {
     name.value = profile.querySelector(".profile__header").textContent;
     profession.value = profile.querySelector(".profile__subtitle").textContent;
 }
+
+

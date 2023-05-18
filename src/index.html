@@ -12,7 +12,12 @@
 <main class="content">
   <section class="profile">
     <div class="profile__info-holder">
-      <img alt="Аватарка" class="profile__avatar" src="./images/ded.png"/>
+      <div class="profile__avatar-overlay">
+        <img alt="Аватарка" class="profile__avatar" src="./images/ded.png"/>
+        <div class="profile__avatar-cover">
+          <button class="profile__avatar-button" type="button"></button>
+        </div>
+      </div>
       <div class="profile__info">
         <div class="profile__row-holder">
           <h1 class="profile__header">Жак-Ив Кусто</h1>
@@ -29,7 +34,10 @@
         <img alt="Карачаевск" class="element__image" src="images/karachaevsk.png"/>
         <div class="element__info">
           <h2 class="element__title">Карачаевск</h2>
-          <div class="element__like"></div>
+          <div class="element__like-container">
+            <div class="element__like"></div>
+            <p class="element__like-number">0</p>
+          </div>
         </div>
         <button class="element__delete-button"></button>
       </article>
@@ -79,6 +87,20 @@
   <div class="popup-image__content">
     <img alt="temp" class="popup-image__image" src="images/ded.png"/>
     <p class="popup-image__subtitle"></p>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<div class="popup popup_preload" id="popup-avatar">
+  <div class="popup__content">
+    <h2 class="popup__title">
+      Обновить аватар
+    </h2>
+    <form class="popup__form" method="POST" name="avatarPopupForm">
+      <input class="popup__input" id="popup-avatar__input" maxlength="200" minlength="2"
+             name="avatarPopupInput" placeholder="URL" required/>
+      <span class="popup-avatar__input-error popup__input-error"></span>
+      <button class="popup__button" type="submit">Сохранить</button>
+    </form>
     <button class="popup__close-button" type="button"></button>
   </div>
 </div>
