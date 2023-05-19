@@ -1,25 +1,16 @@
 import {patchAvatarProfile, patchProfile, postCard} from "./api";
-
-const page = document.querySelector(".page");
-
-
-const profile = page.querySelector(".profile");
-const profileName = profile.querySelector(".profile__header");
-const profileDescription = profile.querySelector(".profile__subtitle");
-const profileAvatar = profile.querySelector(".profile__avatar");
-
-const popupImage = page.querySelector(".popup-image");
-
-const popupMesto = page.querySelector("#popup-mesto");
-const popupAvatar = page.querySelector("#popup-avatar");
-
-const popupImagePicture = popupImage.querySelector(".popup-image__image");
-const popupImageSubtitle = popupImage.querySelector(".popup-image__subtitle");
-
-const popupInfo = page.querySelector("#popup-info");
-const popupMestoButton = popupMesto.querySelector(".popup__button");
-const popupAvatarButton = popupAvatar.querySelector(".popup__button");
-const popupInfoButton = popupInfo.querySelector(".popup__button");
+import {
+    formAvatar,
+    popupAvatar,
+    popupAvatarButton, popupAvatarInput, popupImage, popupImagePicture, popupImageSubtitle, popupInfo,
+    popupInfoButton, popupInfoNameInput, popupInfoProfessionInput, popupMesto,
+    popupMestoButton, popupMestoForm, popupMestoLinkInput, popupMestoNameInput,
+    profileAvatar,
+    profileDescription,
+    profileName, settings
+} from "../index";
+import {createCard} from "./card";
+import {isValid, toggleButtonState} from "./validate";
 
 export let myId = 0;
 
@@ -37,7 +28,10 @@ export const closePopupOverlay = function (popupList) {
 export function handleFormSubmitInfo(event) {
     event.preventDefault();
     popupInfoButton.textContent = "Сохранение...";
-    patchProfile();
+    patchProfile(popupInfoNameInput.value, popupInfoProfessionInput.value).then(data => editProfile(data))
+        .then(() => closePopup(popupInfo))
+        .finally(() => popupInfoButton.textContent = "Сохранить")
+        .catch((err) => console.log(err))
 }
 
 export const editProfile = function (data) {
@@ -51,14 +45,26 @@ export const editProfile = function (data) {
 export function handleFormSubmitMesto(event) {
     event.preventDefault();
     popupMestoButton.textContent = "Сохранение...";
-    postCard(event);
+    postCard(event).then(data => createCard(data.name, data.link, data._id, data.likes, data.owner))
+        .then(() => closePopup(popupMesto))
+        .then(() => event.target.reset())
+        .then(() => toggleButtonState([popupMestoNameInput, popupMestoLinkInput], popupMestoButton, settings))
+        .then(() => isValid(popupMestoForm, popupMestoNameInput, settings))
+        .then(() => isValid(popupMestoForm, popupMestoLinkInput, settings))
+        .catch((err) => console.log(err))
+        .finally(() => popupMestoButton.textContent = "Создать")
 }
-
-
 export function handleFormSubmitAvatar(event) {
     event.preventDefault();
+    const avatarSrc = popupAvatarInput.value;
     popupAvatarButton.textContent = "Сохранение...";
-    patchAvatarProfile(event);
+    patchAvatarProfile(event).then(() => profileAvatar.src = avatarSrc)
+        .then(() => closePopup(popupAvatar))
+        .then(() => event.target.reset())
+        .then(() => toggleButtonState([popupAvatarInput], popupAvatarButton, settings))
+        .then(() => isValid(formAvatar, popupAvatarInput, settings))
+        .catch((err) => console.log(err))
+        .finally(() => popupAvatarButton.textContent = "Сохранить")
 }
 
 export function closeByEscape(evt) {
@@ -88,10 +94,8 @@ export function openImagePopup(title, link) {
 
 
 export function changePopupInfoValues(popupInfo, profile) {
-    const name = popupInfo.querySelector("#popup-info-name__input")
-    const profession = popupInfo.querySelector("#popup-info-profession__input")
-    name.value = profile.querySelector(".profile__header").textContent;
-    profession.value = profile.querySelector(".profile__subtitle").textContent;
+    popupInfoNameInput.value = profile.querySelector(".profile__header").textContent;
+    popupInfoProfessionInput.value = profile.querySelector(".profile__subtitle").textContent;
 }
 
 

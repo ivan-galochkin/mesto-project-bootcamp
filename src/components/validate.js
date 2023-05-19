@@ -25,7 +25,8 @@ const hasInvalidInput = (inputList) => {
     })
 };
 
-const isValid = (formElement, inputElement, settings) => {
+export const isValid = (formElement, inputElement, settings) => {
+    console.log(inputElement.value)
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage, settings);
     } else {
@@ -33,7 +34,7 @@ const isValid = (formElement, inputElement, settings) => {
     }
 };
 
-const showInputError = (formElement, inputElement, errorMessage, settings) => {
+export const showInputError = (formElement, inputElement, errorMessage, settings) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(settings.inputErrorClass);
     errorElement.textContent = errorMessage;
@@ -47,7 +48,7 @@ const hideInputError = (formElement, inputElement, settings) => {
     errorElement.textContent = '';
 };
 
-const toggleButtonState = (inputList, buttonElement, settings) => {
+export const toggleButtonState = (inputList, buttonElement, settings) => {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(settings.inactiveButtonClass);
         buttonElement.setAttribute("disabled", true);
